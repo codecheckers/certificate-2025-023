@@ -27,11 +27,14 @@ Extracts raw LED trace data points corresponding to LED stimulation
 """
 
 import numpy as np
+import matplotlib
+matplotlib.use("Agg")  # Use a non-GUI backend
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pyabf
 import pandas as pd
 from exponentialFitGetTau import exponentialFitGetTau
+import sys
 
 import os
 
@@ -41,7 +44,10 @@ wdir=os.getcwd()
 #from scipy.signal import find_peaks
 
 #### open file 
-file_path = input('Please give me the complete file path of the trace you want to analyse below:\n')
+if len(sys.argv) > 1:
+    file_path = sys.argv[1]
+else:
+    file_path = input('Please give me the complete file path of the trace you want to analyse below:\n')
 abf = pyabf.ABF(file_path)
 
 ### extract main data
@@ -62,7 +68,10 @@ protocol = abf.protocol
 
 ### select experimenter 
 
-user_input = int(input('Which rig was used for this recording:   Rig 1 = 1   Rig 2 = 2\n'))
+if len(sys.argv) > 2:
+    user_input = int(sys.argv[2])
+else:
+    user_input = int(input('Which rig was used for this recording:   Rig 1 = 1   Rig 2 = 2\n'))
 
 experimenter_dict = { 
        1 : 'Rig 1' , 
@@ -77,7 +86,10 @@ else:
     raise ValueError ('Wrong number entered for Rig used, please run script again. No data was saved') #print this if choice selected in not in the opsin dictionary 
 
 ### select opsin type 
-user_input = int(input('What cell type is this? Type the corresponding number: \nWT = 0\nEXCITATORY OPSINS: ChR2(1)      CoChR(2)     Chrimson(3)         ReaChR(4)       Chronos(5)      Cheriff(6)     \nINHIBITORY OPSINS: GtACR1(7)       GtACR2(8)       NpHR(9)         Arch(10)\n\n'))
+if len(sys.argv) > 3:
+    user_input = int(sys.argv[3])
+else:
+    user_input = int(input('What cell type is this? Type the corresponding number: \nWT = 0\nEXCITATORY OPSINS: ChR2(1)      CoChR(2)     Chrimson(3)         ReaChR(4)       Chronos(5)      Cheriff(6)     \nINHIBITORY OPSINS: GtACR1(7)       GtACR2(8)       NpHR(9)         Arch(10)\n\n'))
 
 cell_type_dict = { 
        0 : 'WT' , 
@@ -321,3 +333,5 @@ for counter, (current, time, power) in enumerate (zip (current_data_plot, time_p
     plt.suptitle('Example opsin photocurrent responses from this trace', fontsize=16)
 
     sns.despine()
+
+plt.savefig("codecheck/outputs/figure4.png")

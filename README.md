@@ -29,6 +29,64 @@ If you find the paper or this repository helpful in your publications, please co
 }
 ```
 
+If you want to reproduce the code yourself again, then first run the following command to build the Docker container:
+
+```bash
+docker build -t legacy-py36 .
+```
+
+Next run this command to run the example script with the example data:
+
+```bash
+docker run --rm -it -v "$PWD:/app" -w /app legacy-py36
+```
+
+Or provide the sample data ABF file, the Rig and the Cell Type yourself:
+
+```bash
+docker run --rm -it \
+     -v "$PWD:/app" \
+     -w /app legacy-py36 \
+     python the_python_script.py Sample_data/example.abf 1 6
+```
+
+The following sample data can be used:
+```bash
+Sample_data/
+├── 183060053_1.abf
+├── 186280022_1.abf
+├── 189040010_1.abf
+├── 18d130007_5.abf
+├── 18n270027_1.abf
+├── 2019_01_25_0007.abf
+├── 2019_02_25_0035.abf
+├── 2019_03_16_0000.abf
+├── 2019_03_19_0038.abf
+├── 2019_03_19_0041.abf
+├── 2019_03_19_0055.abf
+├── 2019_08_01_0064.abf
+└── 2019_08_01_0067.abf
+```
+
+The following rigs can be used:
+- Rig 1 = 1
+- Rig 2 = 2
+
+The following cell types can be used:
+- WT = 0
+- EXCITATORY OPSINS:
+  - ChR2(1)
+  - CoChR(2)
+  - Chrimson(3)
+  - ReaChR(4)
+  - Chronos(5)
+  - Cheriff(6)
+- INHIBITORY OPSINS:
+  - GtACR1(7)
+  - GtACR2(8)
+  - NpHR(9)
+  - Arch(10)
+
 # Analysis Scripts for Electrophysiology Data
 
 <p>Here you will find a series of scripts and functions used to analyse the bulk of the electrophysiology data present in Antinucci, Dumitrescu et al 2020 (https://doi.org/10.7554/eLife.54937). Each script has an indepth README at the begining comprising a full description of the process of data extraction and analysis.

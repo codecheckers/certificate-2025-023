@@ -31,21 +31,30 @@ Time to spike from begining of pulse.
 """
 
 import numpy as np
+import matplotlib
+matplotlib.use("Agg")  # Use a non-GUI backend
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pyabf
 import pandas as pd
 from scipy.signal import find_peaks
 import os
+import sys
 wdir=os.getcwd() 
 
 
 #### open file 
-file_path = input('Please give me the complete file path of the trace you want to analyse below:\n')
+if len(sys.argv) > 1:
+    file_path = sys.argv[1]
+else:
+    file_path = input('Please give me the complete file path of the trace you want to analyse below:\n')
 abf = pyabf.ABF(file_path)
 
-### select experimenter 
-user_input = int(input('Which rig was used for this recording: Rig 1 = 1   Rig 2 = 2\n'))
+### select experimenter
+if len(sys.argv) > 2:
+    user_input = int(sys.argv[2])
+else:
+    user_input = int(input('Which rig was used for this recording: Rig 1 = 1   Rig 2 = 2\n'))
 
 experimenter_dict = { 
        1 : 'Rig 1' , 
@@ -60,7 +69,10 @@ else:
     raise ValueError ('Wrong number entered for Rig used, please run script again. No data was saved') #print this if choice selected in not in the opsin dictionary 
 
 ### select opsin type 
-user_input = int(input('What cell type is this? Type the corresponding number: \nWT = 0\nEXCITATORY OPSINS: ChR2(1)      CoChR(2)     Chrimson(3)         ReaChR(4)       Chronos(5)      Cheriff(6)     \nINHIBITORY OPSINS: GtACR1(7)       GtACR2(8)       NpHR(9)         Arch(10)\n\n'))
+if len(sys.argv) > 3:
+    user_input = int(sys.argv[3])
+else:
+    user_input = int(input('What cell type is this? Type the corresponding number: \nWT = 0\nEXCITATORY OPSINS: ChR2(1)      CoChR(2)     Chrimson(3)         ReaChR(4)       Chronos(5)      Cheriff(6)     \nINHIBITORY OPSINS: GtACR1(7)       GtACR2(8)       NpHR(9)         Arch(10)\n\n'))
 
 cell_type_dict = { 
        0 : 'WT' , 
@@ -357,5 +369,5 @@ Gapfree_AP_stim.loc[len(Gapfree_AP_stim)] = data_final #adds row with new values
 ## save new version of updated dataframe as csv
 Gapfree_AP_stim.to_csv('Analysis_output/Gapfree_AP_stim.csv', header = True)
 
-
+plt.savefig("codecheck/outputs/figure4.png")
 
