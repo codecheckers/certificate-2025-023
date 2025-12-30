@@ -1,3 +1,34 @@
+# CODECHECK certificate 2025-023
+
+Repository for CODECHECK certificate 2025-023. It is forked from author's [code repository](https://github.com/elifesciences-publications/Antinucci_Dumitrescu_et_al_2020) associated with the publication.<br>
+Report: https://zenodo.org/records/{placeholder_identifier}
+
+Publication: [A calibrated optogenetic toolbox of stable zebrafish opsin lines](https://doi.org/10.7554/eLife.54937)<br>
+
+If you find the paper or this repository helpful in your publications, please consider citing it.
+
+```bibtex
+@article {10.7554/eLife.54937,
+  article_type = {journal},
+  title        = {A calibrated optogenetic toolbox of stable zebrafish opsin lines},
+  author       = {Antinucci, Paride and Dumitrescu, Adna and Deleuze, Charlotte and Morley, Holly J and Leung, Kristie and Hagley, Tom and Kubo, Fumi and Baier, Herwig and Bianco, Isaac H and Wyart, Claire},
+  editor       = {Burgess, Harold and Stainier, Didier YR and Burgess, Harold and McLean, David L},
+  volume       = 9,
+  year         = 2020,
+  month        = {mar},
+  pub_date     = {2020-03-27},
+  pages        = {e54937},
+  citation     = {eLife 2020;9:e54937},
+  doi          = {10.7554/eLife.54937},
+  url          = {https://doi.org/10.7554/eLife.54937},
+  abstract     = {Optogenetic actuators with diverse spectral tuning, ion selectivity and kinetics are constantly being engineered providing powerful tools for controlling neural activity with subcellular resolution and millisecond precision. Achieving reliable and interpretable in vivo optogenetic manipulations requires reproducible actuator expression and calibration of photocurrents in target neurons. Here, we developed nine transgenic zebrafish lines for stable opsin expression and calibrated their efficacy in vivo. We first used high-throughput behavioural assays to compare opsin ability to elicit or silence neural activity. Next, we performed in vivo whole-cell electrophysiological recordings to quantify the amplitude and kinetics of photocurrents and test opsin ability to precisely control spiking. We observed substantial variation in efficacy, associated with differences in both opsin expression level and photocurrent characteristics, and identified conditions for optimal use of the most efficient opsins. Overall, our calibrated optogenetic toolkit will facilitate the design of controlled optogenetic circuit manipulations.},
+  keywords     = {optogenetics, electrophysiology, transgenesis, CoChR, ChrimsonR, GtACR},
+  journal      = {eLife},
+  issn         = {2050-084X},
+  publisher    = {eLife Sciences Publications, Ltd},
+}
+```
+
 # Analysis Scripts for Electrophysiology Data
 
 <p>Here you will find a series of scripts and functions used to analyse the bulk of the electrophysiology data present in Antinucci, Dumitrescu et al 2020 (https://doi.org/10.7554/eLife.54937). Each script has an indepth README at the begining comprising a full description of the process of data extraction and analysis.
