@@ -369,5 +369,5 @@ Gapfree_AP_stim.loc[len(Gapfree_AP_stim)] = data_final #adds row with new values
 ## save new version of updated dataframe as csv
 Gapfree_AP_stim.to_csv('Analysis_output/Gapfree_AP_stim.csv', header = True)
 
-plt.savefig("codecheck/outputs/figure4.png")
+plt.savefig("figures/figure4.pdf")
 

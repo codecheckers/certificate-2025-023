@@ -15,11 +15,19 @@ from manifest import ManifestProcessor
 
 def name_orcid(entry):
     """Helper function for Name + ORCID"""
-    orcid = entry.get('ORCID')
-    if orcid is not None:
+    if 'ORCID' in entry:
         return f"{entry['name']} (ORCID: [{entry['ORCID']}](https://orcid.org/{entry['ORCID']}))"
     else:
-        return f"{entry['name']}"
+        return entry['name']
+
+def multiple_name_orcid(entries):
+    """Helper function for multiple people to return their Name + ORCID"""
+    return f"{'<br>'.join([name_orcid(a) for a in entries])}"
+
+def multiple_name(entries):
+    """Helper function for multiple people to return their Name + ORCID"""
+    return f"{'<br>'.join([a['name'] for a in entries])}"
+
 
 class Codecheck:
     """
@@ -69,9 +77,6 @@ class Codecheck:
                 base_dir
             )
 
-        # Only have one codechecker
-        self.conf['codechecker'] = self.conf['codechecker'][0]
-
     def title(self):
         """
         Markdown title with the certificate number, the doi of the report, and the CODECHECK
@@ -79,9 +84,9 @@ class Codecheck:
         directory.
         """
         return Markdown(
-            f"""# CODECHECK certificate {self.conf['certificate']}{{-}}
-## [{self.conf['report'].split('://')[1]}]({self.conf['report']}) {{-}}
-[![CODECHECK logo](codecheck_logo.png)](https://codecheck.org.uk)"""
+            f"""# CODECHECK certificate {self.conf['certificate']}
+## [{self.conf['report'].split('://')[1]}]({self.conf['report']})
+[![CODECHECK logo](codecheck_logo.svg)](https://codecheck.org.uk)"""
         )
 
     def summary_table(self):
@@ -95,10 +100,10 @@ Item | Value
 """
         summary_rows = [
             f"Title | *{self.conf['paper']['title']}*",
-            f"Authors | {', '.join([name_orcid(a) for a in self.conf['paper']['authors']])}",
+            f"Authors | {multiple_name_orcid(self.conf['paper']['authors'])}",
             f"Reference | [{self.conf['paper']['reference'].split('://')[1]}]({self.conf['paper']['reference']})",
             f"Repository | [{self.conf['repository'].split('://')[1]}]({self.conf['repository']})",
-            f"Codechecker | {name_orcid(self.conf['codechecker'])}",
+            f"Codechecker | {multiple_name_orcid(self.conf['codechecker'])}",
             f"Date of check | {datetime.fromisoformat(self.conf['check_time']).date()}",
             f"Summary | {self.conf['summary'].strip()}",
         ]
@@ -118,7 +123,7 @@ Item | Value
         # Note that the &nbsp; below are used to work around the fact that pandoc seems to
         # calculate the column width for the LaTeX output based on the length of the headers
         files_header = """
-File&nbsp;&nbsp;&nbsp; | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp | Size (b)
+File | Comment | Size (b)
 :--------------------- | :----------------------------------- | -------:
 """
         files_rows = [
@@ -145,10 +150,10 @@ File&nbsp;&nbsp;&nbsp; | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp | Size (b)
         Markdown citation for this CODECHECK.
         """
         return Markdown(
-            f"{self.conf['codechecker']['name']} "
+            f"{multiple_name(self.conf['codechecker'])} "
             f"({datetime.fromisoformat(self.conf['check_time']).year}). "
             f"CODECHECK Certificate {self.conf['certificate']}. "
-            f"GitHub. [{self.conf['report'].split('://')[1]}]({self.conf['report']})"
+            f"Zenodo. [{self.conf['report'].split('://')[1]}]({self.conf['report']})"
         )
 
     def about_codecheck(self):
@@ -177,7 +182,7 @@ This certificate confirms that the codechecker could independently reproduce the
                 continue
             comment = entry.get("comment", None)
             df = pd.read_csv(op.join("outputs", fname), **kwds)
-            markdown = f"""### `{fname}` {{-}}
+            markdown = f"""### `{fname}`
 {('Author comment: *' + comment + '*') if comment else ' '}
 
 **Column summary statistics:**
@@ -209,14 +214,11 @@ This certificate confirms that the codechecker could independently reproduce the
             comment = entry["comment"]
             full_text.extend(
                 [
-                    r"\begin{figure}" r"\texttt{" + fname.replace("_", r"\_") + r"}.\\",
-                    r"Author comment: \emph{" + comment + r"}\\",
-                    r"\includegraphics{outputs/" + fname + r"}",
-                    r"\end{figure}",
+                    r"![" + r"Author comment: " + comment + r"]" + r"(outputs/" + fname + r")",
                     "",
                 ]
             )
-        return Latex("\n".join(full_text))
+        return Markdown("\n".join(full_text))
 
     def validate(self, check_manifest=True, check_register=True, strict=False):
         """

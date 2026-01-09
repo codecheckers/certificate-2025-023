@@ -86,10 +86,6 @@ class CodecheckValidator:
                     suggestion="Add valid CODECHECK configuration to the file"
                 ))
                 return False
-            
-            # Only have one codechecker
-            self.config['codechecker'] = self.config['codechecker'][0]
-
             return True
         except FileNotFoundError:
             self.issues.append(ValidationIssue(
@@ -796,21 +792,21 @@ class CodecheckValidator:
         report = []
 
         if errors:
-            report.append(f"## x Errors ({len(errors)})\n")
+            report.append(f"## ❌ Errors ({len(errors)})\n")
             for issue in errors:
                 report.append(f"- **{issue.field}**: {issue.message}")
                 if issue.suggestion:
                     report.append(f"  - *Suggestion*: {issue.suggestion}")
 
         if warnings:
-            report.append(f"\n## !  Warnings ({len(warnings)})\n")
+            report.append(f"\n## ⚠️  Warnings ({len(warnings)})\n")
             for issue in warnings:
                 report.append(f"- **{issue.field}**: {issue.message}")
                 if issue.suggestion:
                     report.append(f"  - *Suggestion*: {issue.suggestion}")
 
         if infos:
-            report.append(f"\n## i  Information ({len(infos)})\n")
+            report.append(f"\n## ℹ️  Information ({len(infos)})\n")
             for issue in infos:
                 report.append(f"- **{issue.field}**: {issue.message}")
                 if issue.suggestion:
