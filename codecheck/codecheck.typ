@@ -31,7 +31,7 @@
 #show table: t => {
   if t.columns.all(c => c == auto) and t.columns.len() == 3 {
     table(
-      columns: (2fr, 3fr, 0.8fr),
+      columns: (1.5fr, 4fr, 0.8fr),
       align: t.align,
       ..t.children
     )

@@ -30,8 +30,12 @@ Summary | The check was just started.
 
 File | Comment | Size (b)
 :--------------------- | :----------------------------------- | -------:
-`Gapfree_AP_stim.csv` | The .csv file containing the gap free AP stim. | 1870
-`figure4.pdf` | The fourth figure from the paper. | 16548
+`Gapfree_AP_stim.csv` | The .csv file containing the gap free AP stimulation. | 1870
+`figure4_1.pdf` | Manuscript Figure 4 (Trace: 2019_03_16_0000, Opsin: Cheriff) | 16548
+`figure4_2.pdf` | Manuscript Figure 4 (Trace: 18n270027_1, Opsin: Chrimson) | 82263
+`figure4_3.pdf` | Manuscript Figure 4 (Trace: 2019_03_19_0038, Opsin: CoChR) | 63693
+`figure9_1.pdf` | Manuscript Figure 9 (Trace: 183060053_1, Opsin: NpHR) | 235116
+`figure9_2.pdf` | Manuscript Figure 9 (Trace: 2019_08_01_0064, Opsin: GtACR1) | 213717
 
 
 
@@ -85,21 +89,32 @@ The code, data, and figures created by the original authors are licensed under t
 
 
 ### `Analysis_output/Gapfree_AP_stim.csv`
-Author comment: *The .csv file containing the gap free AP stim.*
+Author comment: *The .csv file containing the gap free AP stimulation.*
 
 **Column summary statistics:**
 
-+----+---------+--------+--------+--------+--------+--------+--------+--------+
 |    |   count |   mean |    std |    min |    25% |    50% |    75% |    max |
-+====+=========+========+========+========+========+========+========+========+
+|---:|--------:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|
 |  0 |       8 | 3.5000 | 2.4495 | 0.0000 | 1.7500 | 3.5000 | 5.2500 | 7.0000 |
-+----+---------+--------+--------+--------+--------+--------+--------+--------+
 
 
 
 ### Figures
 
 
-![Author comment: The fourth figure from the paper.](outputs/figures/figure4.pdf)
+### `figures/figure4_1.pdf`
+Author comment: *Manuscript Figure 4 (Trace: 2019_03_16_0000, Opsin: Cheriff)*![Author comment: Manuscript Figure 4 (Trace: 2019_03_16_0000, Opsin: Cheriff)](outputs/figures/figure4_1.pdf)
+
+### `figures/figure4_2.pdf`
+Author comment: *Manuscript Figure 4 (Trace: 18n270027_1, Opsin: Chrimson)*![Author comment: Manuscript Figure 4 (Trace: 18n270027_1, Opsin: Chrimson)](outputs/figures/figure4_2.pdf)
+
+### `figures/figure4_3.pdf`
+Author comment: *Manuscript Figure 4 (Trace: 2019_03_19_0038, Opsin: CoChR)*![Author comment: Manuscript Figure 4 (Trace: 2019_03_19_0038, Opsin: CoChR)](outputs/figures/figure4_3.pdf)
+
+### `figures/figure9_1.pdf`
+Author comment: *Manuscript Figure 9 (Trace: 183060053_1, Opsin: NpHR)*![Author comment: Manuscript Figure 9 (Trace: 183060053_1, Opsin: NpHR)](outputs/figures/figure9_1.pdf)
+
+### `figures/figure9_2.pdf`
+Author comment: *Manuscript Figure 9 (Trace: 2019_08_01_0064, Opsin: GtACR1)*![Author comment: Manuscript Figure 9 (Trace: 2019_08_01_0064, Opsin: GtACR1)](outputs/figures/figure9_2.pdf)
 
 

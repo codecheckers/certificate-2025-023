@@ -26,9 +26,17 @@ paper:
 
 manifest:
   - file: Analysis_output/Gapfree_AP_stim.csv
-    comment: The .csv file containing the gap free AP stim.
-  - file: figures/figure4.pdf
-    comment: The fourth figure from the paper.
+    comment: The .csv file containing the gap free AP stimulation.
+  - file: figures/figure4_1.pdf
+    comment: 'Manuscript Figure 4 (Trace: 2019_03_16_0000, Opsin: Cheriff)'
+  - file: figures/figure4_2.pdf
+    comment: 'Manuscript Figure 4 (Trace: 18n270027_1, Opsin: Chrimson)'
+  - file: figures/figure4_3.pdf
+    comment: 'Manuscript Figure 4 (Trace: 2019_03_19_0038, Opsin: CoChR)'
+  - file: figures/figure9_1.pdf
+    comment: 'Manuscript Figure 9 (Trace: 183060053_1, Opsin: NpHR)'
+  - file: figures/figure9_2.pdf
+    comment: 'Manuscript Figure 9 (Trace: 2019_08_01_0064, Opsin: GtACR1)'
 
 codechecker:
   - name: Linus Dexter Hackel

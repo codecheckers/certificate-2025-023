@@ -334,4 +334,6 @@ for counter, (current, time, power) in enumerate (zip (current_data_plot, time_p
 
     sns.despine()
 
-plt.savefig("codecheck/outputs/figure4.png")
+figure_id = int(input('Please enter the Figure ID (bigger than 1).\n\n'))
+
+plt.savefig(f"figures/figure4_{figure_id}.pdf")
