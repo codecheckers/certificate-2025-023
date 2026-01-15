@@ -421,7 +421,7 @@ if threshold == 0: ## pulse values are below 5V
     LED_index_value = LED_max_V_round_int
 else:
     print('Wrong scale detected for LED analog input. Please add LED steps in Volts below, and na for no pulse applied:\n')
-    LED_max_V_user = [input('pulse_1:  \n'), input('pulse2:  \n'), input('pulse3:  \n'), input('pulse4:  \n'), input('pulse5:  \n'), input('pulse6:  \n'), input('pulse7:  \n')]
+    LED_max_V_user = [input('pulse_1:  \n'), input('pulse2:  \n')]
     LED_index_value = LED_max_V_user
     while 'na' in LED_max_V_user: LED_max_V_user.remove('na')  ## remove any na values since we don't need them 
 
@@ -539,3 +539,7 @@ for counter, (voltage, time, power) in enumerate (zip (voltage_data_plot, time_p
     plt.suptitle('Example opsin induced voltage deflections from this trace', fontsize=16)
 
     sns.despine()
+
+figure_id = int(input('Please enter the Figure ID.\n\n'))
+
+plt.savefig(f"figures/figure9_{figure_id}.pdf")

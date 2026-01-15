@@ -365,4 +365,4 @@ for counter, (current, time, power) in enumerate (zip (current_data_plot, time_p
 
 figure_id = int(input('Please enter the Figure ID.\n\n'))
 
-plt.savefig(f"figures/figure9_{figure_id}.pdf")
+plt.savefig(f"figures/figure8_{figure_id}.pdf")

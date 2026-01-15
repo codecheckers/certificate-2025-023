@@ -449,7 +449,7 @@ trace_data_master = trace_data_LED.append(trace_data_I_inj, sort = False)
 
 ### save individual file
 data_final_df = trace_data_master ## date data_final array and transform into transposed dataframe
-data_final_df.to_csv('Analysis_output/Single_trace_data/CC_excitatory/' + str(file_name) +'.csv', header = True) ## write file as individual csv file 
+data_final_df.to_csv('Analysis_output/Single_Trace_data/CC_excitatory/' + str(file_name) +'.csv', header = True) ## write file as individual csv file 
 
 ##### save data in master dataframe
 
@@ -529,3 +529,7 @@ for counter, (voltage, time, power) in enumerate (zip (voltage_data_plot, time_p
 
 
 print ('Total number of spikes detected in this trace: N = ' +str(spike_count_total_LED_trace ))
+
+figure_id = int(input('Please enter the Figure ID.\n\n'))
+
+plt.savefig(f"figures/figure5_{figure_id}.pdf")

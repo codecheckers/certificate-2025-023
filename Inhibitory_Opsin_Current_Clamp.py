@@ -397,7 +397,7 @@ trace_data_master = trace_data_LED
 
 ### save individual file
 data_final_df = trace_data_master ## date data_final array and transform into transposed dataframe
-data_final_df.to_csv('/Users/adna.dumitrescu/Documents/Wyart_Postdoc/Data/OPSIN_testing_project/Opsin_Ephys_Analysis/CC_analysis/' + str(file_name) +'.csv', header = True) ## write file as individual csv file 
+data_final_df.to_csv('Analysis_output/' + str(file_name) +'.csv', header = True) ## write file as individual csv file 
 
 ##### save data in master dataframe
 
@@ -414,13 +414,13 @@ CC_opsin_inhibitory_master.to_csv('/Users/adna.dumitrescu/Documents/Wyart_Postdo
 """
 
 ##open master sheet with data 
-CC_opsin_inhibitory_master = pd.read_csv('/Users/adna.dumitrescu/Documents/Wyart_Postdoc/Data/OPSIN_testing_project/Opsin_Ephys_Analysis/CC_analysis/CC_opsin_inhibitory_master.csv', index_col = 0) 
+CC_opsin_inhibitory_master = pd.read_csv('Analysis_output/CC_opsin_inhibitory_master.csv', index_col = 0) 
 
 ### add data extracted here as a new row in opened dataframe
 CC_opsin_inhibitory_master = CC_opsin_inhibitory_master.append(trace_data_master, sort = False) #adds row with new values to main dataframe
 
 ## save new version of updated dataframe as csv
-CC_opsin_inhibitory_master.to_csv('/Users/adna.dumitrescu/Documents/Wyart_Postdoc/Data/OPSIN_testing_project/Opsin_Ephys_Analysis/CC_analysis/CC_opsin_inhibitory_master.csv', header = True)
+CC_opsin_inhibitory_master.to_csv('Analysis_output/CC_opsin_inhibitory_master.csv', header = True)
 
 
 
@@ -454,3 +454,7 @@ for counter, (voltage, time, power) in enumerate (zip (voltage_data_plot, time_p
     sns.despine()
 
 print ('Total number of spikes detected in this trace: N = ' +str(spike_count_total_LED_trace ))
+
+figure_id = int(input('Please enter the Figure ID.\n\n'))
+
+plt.savefig(f"figures/figure9_{figure_id}.pdf")

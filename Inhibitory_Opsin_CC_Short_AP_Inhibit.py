@@ -445,3 +445,7 @@ print ('During which we counted a total of spikes : N = ' +str(spike_count_I_LED
 print ('Coming to and average of spikes per pulse of  : N = ' +str(spike_count_I_LED_avg_per_pulse ))
 print ('Standard Current pulse only gave rise to an average of spikes per pulse  : N = ' +str(spike_count_I_avg_per_pulse))
 print ('Calculated that ' + str (round(spike_inhibition_percent,1)) + '% spikes were inhibited in this trace')
+
+figure_id = int(input('Please enter the Figure ID.\n\n'))
+
+plt.savefig(f"figures/figure9_{figure_id}.pdf")

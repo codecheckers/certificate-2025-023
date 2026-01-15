@@ -33,18 +33,32 @@ manifest:
     comment: 'Manuscript Figure 4 (Trace: 18n270027_1, Opsin: Chrimson)'
   - file: figures/figure4_3.pdf
     comment: 'Manuscript Figure 4 (Trace: 2019_03_19_0038, Opsin: CoChR)'
+  - file: figures/figure5_1.pdf
+    comment: 'Manuscript Figure 5 (Trace: 2019_03_19_0055, Opsin: GtACR1)'
+  - file: figures/figure5_1.pdf
+    comment: 'Manuscript Figure 5 (Trace: 18d130007_5, Opsin: Chrimson)'
+  - file: figures/figure8_1.pdf
+    comment: 'Manuscript Figure 8 (Trace: 183060053_1, Opsin: NpHR)'
+  - file: figures/figure8_2.pdf
+    comment: 'Manuscript Figure 8 (Trace: 2019_08_01_0064, Opsin: GtACR1)'
   - file: figures/figure9_1.pdf
-    comment: 'Manuscript Figure 9 (Trace: 183060053_1, Opsin: NpHR)'
+    comment: 'Manuscript Figure 9 (Trace: 186280022_1, Opsin: NpHR)'
   - file: figures/figure9_2.pdf
-    comment: 'Manuscript Figure 9 (Trace: 2019_08_01_0064, Opsin: GtACR1)'
+    comment: 'Manuscript Figure 9 (Trace: 2019_02_25_0035, Opsin: GtACR1)'
+  - file: figures/figure9_3.pdf
+    comment: 'Manuscript Figure 9 (Trace: 2019_08_01_0067, Opsin: GtACR1)'
+  - file: figures/figure9_4.pdf
+    comment: 'Manuscript Figure 9 (Trace: 189040010_1, Opsin: NpHR)'
+  - file: figures/figure9_5.pdf
+    comment: 'Manuscript Figure 9 (Trace: 2019_01_25_0007, Opsin: GtACR1)'
 
 codechecker:
   - name: Linus Dexter Hackel
     ORCID: 0009-0000-0114-8005
     
 summary: |
-  The check was just started.
+  Figures 4, 5, 8 and 9 could be reproduced partially. There was no documentation how Figures 1, 2, 3, 6 and 10 where produced or with which scripts, so they couldn't be reproduced.
 
-check_time: "2025-12-30T13:11"
+check_time: "2026-01-15T15:01"
 
 repository: https://github.com/codecheckers/certificate-2025-023
