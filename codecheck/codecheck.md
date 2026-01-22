@@ -13,10 +13,10 @@
 Item | Value
 :--- | :----
 Title | *A calibrated optogenetic toolbox of stable zebrafish opsin lines*
-Authors | Paride Antinucci (ORCID: [0000-0003-0573-5383](https://orcid.org/0000-0003-0573-5383))<br>Adna Dumitrescu (ORCID: [0000-0002-7354-1452](https://orcid.org/0000-0002-7354-1452))<br>Charlotte Deleuze<br>Holly J Morley (ORCID: [0000-0002-0007-3563](https://orcid.org/0000-0002-0007-3563))<br>Kristie Leung<br>Tom Hagley<br>Fumi Kubo<br>Herwig Baier (ORCID: [0000-0002-7268-0469](https://orcid.org/0000-0002-7268-0469))<br>Isaac H Bianco (ORCID: [0000-0002-3149-4862](https://orcid.org/0000-0002-3149-4862))<br>Claire Wyart (ORCID: [0000-0002-1668-4975](https://orcid.org/0000-0002-1668-4975))
+Authors | Paride Antinucci (ORCID: 0000-0003-0573-5383), Adna Dumitrescu (ORCID: 0000-0002-7354-1452), Charlotte Deleuze, Holly J Morley (ORCID: 0000-0002-0007-3563), Kristie Leung, Tom Hagley, Fumi Kubo, Herwig Baier (ORCID: 0000-0002-7268-0469), Isaac H Bianco (ORCID: 0000-0002-3149-4862), Claire Wyart (ORCID: 0000-0002-1668-4975)
 Reference | [doi.org/10.7554/eLife.54937](https://doi.org/10.7554/eLife.54937)
 Repository | [github.com/codecheckers/certificate-2025-023](https://github.com/codecheckers/certificate-2025-023)
-Codechecker | Linus Dexter Hackel (ORCID: [0009-0000-0114-8005](https://orcid.org/0009-0000-0114-8005))
+Codechecker | Linus Dexter Hackel (ORCID: 0009-0000-0114-8005)
 Date of check | 2026-01-15
 Summary | Figures 4, 5, 8 and 9 could be reproduced partially. There was no documentation how Figures 1, 2, 3, 6 and 10 where produced or with which scripts, so they couldn't be reproduced.
 

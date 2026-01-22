@@ -1,4 +1,5 @@
 #import "@preview/cmarker:0.1.8"
+#import "@preview/pubmatter:0.2.2"
 #import "@preview/wrap-it:0.1.1": wrap-content, wrap-top-bottom
 
 #set text(
@@ -18,6 +19,10 @@
   top: if y < 2 { stroke } else { 0pt },
   bottom: stroke,
 )
+
+#show regex("\(ORCID: ([0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4})\)"): it => {
+  pubmatter.orcid-link(orcid: it.text.trim(regex("\\(ORCID: ")).trim(regex("\\)")))
+}
 
 #set table(
   stroke: frame(1pt + black),   // no default table borders
@@ -73,6 +78,9 @@
       center,
       h
     )
+  } else if h.level == 2 and h.body == [Manifest files] {
+    pagebreak()
+    h
   } else {
     h
   }
@@ -80,7 +88,7 @@
 
 // center the codecheck logo
 #show image: img => {
-  if img.source.ends-with(".svg") {
+  if img.source == "codecheck_logo.svg" {
     block(
        height: 2em,     
     )
