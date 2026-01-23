@@ -95,8 +95,6 @@ LED_max_V_user = [input('pulse_1:  \n'), input('pulse2:  \n')]
 
 ## Citing this document
 
-yooooo
-
 
 
 

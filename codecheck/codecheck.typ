@@ -36,7 +36,7 @@
 #show table: t => {
   if t.columns.all(c => c == auto) and t.columns.len() == 3 {
     table(
-      columns: (1.5fr, 4fr, 0.8fr),
+      columns: (2fr, 3fr, 0.8fr),
       align: t.align,
       ..t.children
     )
@@ -59,8 +59,9 @@
   }
 }
 
-// make links blue
-#show link: set text(blue)
+// make links blue and underlined
+#show link: underline
+#show link: set text(fill: rgb("#467886"))
 
 // center the first headings
 #let heading_index = counter("heading_index");
