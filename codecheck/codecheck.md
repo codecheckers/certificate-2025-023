@@ -1,5 +1,5 @@
 # CODECHECK certificate 2025-023
-## [github.com/codecheckers/certificate-2025-023/](https://github.com/codecheckers/certificate-2025-023/)
+## [https://codecheck.org.uk/register/certs/2025-023/](https://codecheck.org.uk/register/certs/2025-023/)
 [![CODECHECK logo](codecheck_logo.svg)](https://codecheck.org.uk)
 
 
@@ -13,12 +13,12 @@
 Item | Value
 :--- | :----
 Title | *A calibrated optogenetic toolbox of stable zebrafish opsin lines*
-Authors | Paride Antinucci (ORCID: 0000-0003-0573-5383), Adna Dumitrescu (ORCID: 0000-0002-7354-1452), Charlotte Deleuze, Holly J Morley (ORCID: 0000-0002-0007-3563), Kristie Leung, Tom Hagley, Fumi Kubo, Herwig Baier (ORCID: 0000-0002-7268-0469), Isaac H Bianco (ORCID: 0000-0002-3149-4862), Claire Wyart (ORCID: 0000-0002-1668-4975)
-Reference | [doi.org/10.7554/eLife.54937](https://doi.org/10.7554/eLife.54937)
-Repository | [github.com/codecheckers/certificate-2025-023](https://github.com/codecheckers/certificate-2025-023)
-Codechecker | Linus Dexter Hackel (ORCID: 0009-0000-0114-8005)
+Author(s) | Paride Antinucci (ORCID: 0000-0003-0573-5383), Adna Dumitrescu (ORCID: 0000-0002-7354-1452), Charlotte Deleuze, Holly J Morley (ORCID: 0000-0002-0007-3563), Kristie Leung, Tom Hagley, Fumi Kubo, Herwig Baier (ORCID: 0000-0002-7268-0469), Isaac H Bianco (ORCID: 0000-0002-3149-4862), Claire Wyart (ORCID: 0000-0002-1668-4975)
+Reference | [https://doi.org/10.7554/eLife.54937](https://doi.org/10.7554/eLife.54937)
+Repository | [https://github.com/codecheckers/certificate-2025-023](https://github.com/codecheckers/certificate-2025-023)
+Codechecker(s) | Linus Dexter Hackel (ORCID: 0009-0000-0114-8005)
 Date of check | 2026-01-15
-Summary | Figures 4, 5, 8 and 9 could be reproduced partially. There was no documentation how Figures 1, 2, 3, 6 and 10 where produced or with which scripts, so they couldn't be reproduced.
+Summary | Figures 4, 5, 8 and 9 could be reproduced partially. More precisely, the figures, which were produced by the scripts inlcude a range of graphs and there is always one graph which matches a graph in the related figure in the paper. However some produced figures also look completely different to those in the paper like e.g. `figures/figure4_1.pdf`, whose graphs aren't included in figure 4 of the paper enitrely. Furthermore, like already said, each script produces a range of graphs, but only one seems to appear in the related figure of the paper. I am not sure why that is and also how that graph is selected. There was no documentation how Figures 1, 2, 3, 6 and 10 where produced or with which scripts, so they couldn't be reproduced.
 
 
 
@@ -51,7 +51,7 @@ File | Comment | Size (b)
 
 
 
-Figures 4, 5, 8 and 9 could be reproduced partially. There was no documentation how Figures 1, 2, 3, 6 and 10 where produced or with which scripts, so they couldn't be reproduced.
+Figures 4, 5, 8 and 9 could be reproduced partially. More precisely, the figures, which were produced by the scripts inlcude a range of graphs and there is always one graph which matches a graph in the related figure in the paper. However some produced figures also look completely different to those in the paper like e.g. `figures/figure4_1.pdf`, whose graphs aren't included in figure 4 of the paper enitrely. Furthermore, like already said, each script produces a range of graphs, but only one seems to appear in the related figure of the paper. I am not sure why that is and also how that graph is selected. There was no documentation how Figures 1, 2, 3, 6 and 10 where produced or with which scripts, so they couldn't be reproduced.
 
 
 
@@ -59,9 +59,9 @@ Figures 4, 5, 8 and 9 could be reproduced partially. There was no documentation 
 
 ### Environment
 
-Setting up the environment took a bit of time, as older versions of Python and older Dependencies needed to be properly installed, but it is all very well documented in the README file what dependencies need to be installed and with which version.
+Setting up the environment took a bit of time, as older versions of Python and older Dependencies needed to be properly installed, but it is all very well documented in the `README` file what dependencies need to be installed and with which version.
 
-Since I didn't want a new window for the plot results of MatPlotLib, I descided to put the following sequence at the end of each script, so the created figure is automatically saved to the *`outputs/figures/`* directory.
+Since I didn't want a new window for the plot results of MatPlotLib, I descided to put the following sequence at the end of each script, so the created figure is automatically saved to the `outputs/figures/` directory.
 
 ```python
 figure_number = 9
@@ -73,11 +73,11 @@ plt.savefig(f"figures/figure{figure_number}_{figure_id}.pdf")
 
 ### Script Errors
 
-In the script [*`Excitatory_Opsin_Current_Clamp.py`*](https://github.com/elifesciences-publications/Antinucci_Dumitrescu_et_al_2020/blob/master/Excitatory_Opsin_Current_Clamp.py) the filepath for the trace contained a typo in line 452. It was: *`'Analysis_output/Single_trace_data/CC_excitatory/2019_03_19_0055.csv'`* but it should have been *`'Analysis_output/Single_Trace_data/CC_excitatory/2019_03_19_0055.csv'`*. This is just a small error, but it still took me some minutes in figuring out, wher the *`FileNotFoundError`* could be coming from, as the file appeared to be there.
+In the script [`Excitatory_Opsin_Current_Clamp.py`](https://github.com/elifesciences-publications/Antinucci_Dumitrescu_et_al_2020/blob/master/Excitatory_Opsin_Current_Clamp.py) the filepath for the trace contained a typo in line 452. It was: `'Analysis_output/Single_trace_data/CC_excitatory/2019_03_19_0055.csv'` but it should have been `'Analysis_output/Single_Trace_data/CC_excitatory/2019_03_19_0055.csv'`. So instead of `Trace` the url inlcuded `trace`. This is just a small error, but it still took me some minutes in figuring out, where the `FileNotFoundError` could be coming from, as the file appeared to be there.
 
-Similar to the first error, in the script [*`Inhibitory_Opsin_Current_Clamp.py`*](github.com/elifesciences-publications/Antinucci_Dumitrescu_et_al_2020/blob/master/Inhibitory_Opsin_Current_Clamp.py) the filepath for the CC inhibitory opsin master sheet had the wrong filepath and needed to be changed in the lines 400, 417, 423. It was: *`'/Users/adna.dumitrescu/Documents/Wyart_Postdoc/Data/OPSIN_testing_project/Opsin_Ephys_Analysis/CC_analysis/CC_opsin_inhibitory_master.csv'`* but it should have been: *`'Analysis_output/CC_opsin_inhibitory_master.csv'`*. Different to the first error though, the file didn't exist entirely, so it had to be newly created with the same *`csv-Header`* as the file *`'Analysis_output/VC_inhibitory_opsin_master.csv'`*. After these two fixes, the script worked perfectly.
+Similar to the first error, in the script [`Inhibitory_Opsin_Current_Clamp.py`](https://github.com/elifesciences-publications/Antinucci_Dumitrescu_et_al_2020/blob/master/Inhibitory_Opsin_Current_Clamp.py) the filepath for the CC inhibitory opsin master sheet wasn't correct and needed to be changed in the lines 400, 417, 423. Here the problem was, that it was the full file path to the authors private directory, so it needed to be changed to my directory. My recommendation is, to only use relative file paths, such that these errors can be avoided. Different to the first error though, the file didn't exist entirely, so it had to be newly created with the same `csv-Header` as the file `'Analysis_output/VC_inhibitory_opsin_master.csv'`. After these two fixes, the script worked perfectly.
 
-In the script *`Inhibitory_Opsin_CC_Long_AP_Inhibit.py`* the line 424 had to be changed from an array of the length 7 to an array of the length 2, as this ws what was given in the documentation and also what the code afterwards expected. The code was therefore changed from:
+In the script [`Inhibitory_Opsin_CC_Long_AP_Inhibit.py`](https://github.com/elifesciences-publications/Antinucci_Dumitrescu_et_al_2020/blob/master/Inhibitory_Opsin_CC_Long_AP_Inhibit.py) the line 424 had to be changed from an array of the length 7 to an array of the length 2, as this ws what was given in the documentation and also what the code afterwards expected. The code was therefore changed from:
 
 ```python
 LED_max_V_user = [input('pulse_1:  \n'), input('pulse2:  \n'), input('pulse3:  \n'), input('pulse4:  \n'), input('pulse5:  \n'), input('pulse6:  \n'), input('pulse7:  \n')]
@@ -98,7 +98,7 @@ LED_max_V_user = [input('pulse_1:  \n'), input('pulse2:  \n')]
 
 
 
-Linus Dexter Hackel (2026). CODECHECK Certificate 2025-023. Zenodo. [github.com/codecheckers/certificate-2025-023/](https://github.com/codecheckers/certificate-2025-023/)
+Linus Dexter Hackel (2026). CODECHECK Certificate 2025-023. Zenodo. [https://codecheck.org.uk/register/certs/2025-023/](https://codecheck.org.uk/register/certs/2025-023/)
 
 
 
@@ -113,7 +113,7 @@ This certificate confirms that the codechecker could independently reproduce the
 
 
 ## About this document
-This document was created using a [jupyter notebook](https://jupyter.org/) and converted into Markdown via [nbconvert](https://nbconvert.readthedocs.io/) nd [pandoc](https://pandoc.org/). Afterwards it was converted into [Typst](https://typst.app/) using [cmarker](https://typst.app/universe/package/cmarker/) and then into PDF using Typst.
+This document was created using [codecheck-py](https://github.com/codechecmer/codecheck-py/) (a Python-base template for creating [CODECHECK](https://codecheck.org.uk/) certificates). The CODECHECK details are filled into a [jupyter notebook](https://jupyter.org/) which is then converted into Markdown via [nbconvert](https://nbconvert.readthedocs.io/). Afterwards it gets converted into [Typst](https://typst.app/) using [cmarker](https://typst.app/universe/package/cmarker/) and then into PDF using Typst.
 
 ## License
 The code, data, and figures created by the original authors are licensed under the [MIT License](https://opensource.org/license/mit). Therefore the content of the `codecheck` directory and this report are licensed under the same [MIT License](https://github.com/codecheckers/certificate-2025-023/blob/master/LICENSE) license.

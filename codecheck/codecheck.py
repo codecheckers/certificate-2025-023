@@ -6,7 +6,7 @@ from datetime import datetime
 import os.path as op
 from pathlib import Path
 import yaml
-from IPython.display import Markdown, Latex
+from IPython.display import Markdown
 import pandas as pd
 
 from validation import CodecheckValidator
@@ -28,6 +28,13 @@ def multiple_name(entries):
     """Helper function for multiple people to return their Name + ORCID"""
     return f"{', '.join([a['name'] for a in entries])}"
 
+def url_link(url):
+    """Helper function to create Markdown links for the full URL with the protocol in front."""
+    return f"[{url}]({url})"
+
+def short_link(url):
+    """Helper function to create Markdown links for the short URL without the protocol in front."""
+    return f"[{url.split('://')[1]}]({url})"
 
 class Codecheck:
     """
@@ -77,6 +84,10 @@ class Codecheck:
                 base_dir
             )
 
+    def get_formatted_summary(self):
+        """Remove additional whitespaces and newline characters from the summary."""
+        return self.conf['summary'].strip().replace("\n", " ")
+
     def title(self):
         """
         Markdown title with the certificate number, the doi of the report, and the CODECHECK
@@ -85,7 +96,7 @@ class Codecheck:
         """
         return Markdown(
             f"""# CODECHECK certificate {self.conf['certificate']}
-## [{self.conf['report'].split('://')[1]}]({self.conf['report']})
+## {url_link(self.conf['report'])}
 [![CODECHECK logo](codecheck_logo.svg)](https://codecheck.org.uk)"""
         )
 
@@ -100,12 +111,12 @@ Item | Value
 """
         summary_rows = [
             f"Title | *{self.conf['paper']['title']}*",
-            f"Authors | {multiple_name_orcid(self.conf['paper']['authors'])}",
-            f"Reference | [{self.conf['paper']['reference'].split('://')[1]}]({self.conf['paper']['reference']})",
-            f"Repository | [{self.conf['repository'].split('://')[1]}]({self.conf['repository']})",
-            f"Codechecker | {multiple_name_orcid(self.conf['codechecker'])}",
+            f"Author(s) | {multiple_name_orcid(self.conf['paper']['authors'])}",
+            f"Reference | {url_link(self.conf['paper']['reference'])}",
+            f"Repository | {url_link(self.conf['repository'])}",
+            f"Codechecker(s) | {multiple_name_orcid(self.conf['codechecker'])}",
             f"Date of check | {datetime.fromisoformat(self.conf['check_time']).date()}",
-            f"Summary | {self.conf['summary'].strip()}",
+            f"Summary | {self.get_formatted_summary()}",
         ]
         return Markdown(summary_header + "\n".join(summary_rows))
 
@@ -143,7 +154,7 @@ File | Comment | Size (b)
         """
         Markdown rendering of the `summary` field in `codecheck.yml`.
         """
-        return Markdown(self.conf["summary"].strip())
+        return Markdown(self.get_formatted_summary())
 
     def citation(self):
         """
@@ -153,7 +164,7 @@ File | Comment | Size (b)
             f"{multiple_name(self.conf['codechecker'])} "
             f"({datetime.fromisoformat(self.conf['check_time']).year}). "
             f"CODECHECK Certificate {self.conf['certificate']}. "
-            f"Zenodo. [{self.conf['report'].split('://')[1]}]({self.conf['report']})"
+            f"Zenodo. {url_link(self.conf['report'])}"
         )
 
     def about_codecheck(self):

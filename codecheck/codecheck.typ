@@ -2,14 +2,32 @@
 #import "@preview/pubmatter:0.2.2"
 #import "@preview/wrap-it:0.1.1": wrap-content, wrap-top-bottom
 
-#set text(
-  lang: "en",
-)
 #set page("a4", numbering: "1")
 
 #show figure.caption: set text(size: 10pt)
 
-#set text(font: "New Computer Modern")
+#set text(
+  font: "Latin Modern Roman",
+  lang: "en",
+  size: 10pt
+)
+
+#show math.equation: set text(
+  font: "Latin Modern Math"
+)
+
+#show raw: set text(font: "Ubuntu Mono")
+
+#show raw.where(block: false): text.with(
+  weight: "bold"
+)
+
+#show raw.where(block: true): block.with(
+  fill: luma(248),
+  inset: 10pt,
+  radius: 0pt,
+  width: 100%,
+)
 
 // style the tables
 // See the strokes section for details on this!
@@ -36,7 +54,7 @@
 #show table: t => {
   if t.columns.all(c => c == auto) and t.columns.len() == 3 {
     table(
-      columns: (2fr, 3fr, 0.8fr),
+      columns: (1fr, 3fr, 0.8fr),
       align: t.align,
       ..t.children
     )
