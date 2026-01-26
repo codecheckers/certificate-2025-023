@@ -57,11 +57,11 @@ codechecker:
     ORCID: 0009-0000-0114-8005
     
 summary: |
-  Figures 4, 5, 8 and 9 could be reproduced partially. More precisely, the figures, which were produced by the scripts inlcude a range of graphs and there is always one graph which matches a graph in the related figure in the paper.
-  However some produced figures also look completely different to those in the paper like e.g. `figures/figure4_1.pdf`, whose graphs aren't included in figure 4 of the paper enitrely.
-  Furthermore, like already said, each script produces a range of graphs, but only one seems to appear in the related figure of the paper.
-  I am not sure why that is and also how that graph is selected.
-  There was no documentation how Figures 1, 2, 3, 6 and 10 where produced or with which scripts, so they couldn't be reproduced.
+  Figures 4, 5, 8 and 9 could be reproduced partially.
+  The provided scripts produce of figures but there is always only graph which matches a graph in the related figure in the paper.
+  It is unclear why, or how that graph is selected.
+  However, some produced figures look completely different to those in the paper, e.g., `figures/figure4_1.pdf`, whose graphs aren't included in Figure 4 of the paper at all.
+  There was no documentation how Figures 1, 2, 3, 6 and 10 where created.
 
 check_time: "2026-01-15T15:01"
 
