@@ -18,7 +18,7 @@ Reference | [https://doi.org/10.7554/eLife.54937](https://doi.org/10.7554/eLife.
 Repository | [https://github.com/codecheckers/certificate-2025-023](https://github.com/codecheckers/certificate-2025-023)
 Codechecker(s) | Linus Dexter Hackel (ORCID: 0009-0000-0114-8005)
 Date of check | 2026-01-15
-Summary | Figures 4, 5, 8 and 9 could be reproduced partially. More precisely, the figures, which were produced by the scripts inlcude a range of graphs and there is always one graph which matches a graph in the related figure in the paper. However some produced figures also look completely different to those in the paper like e.g. `figures/figure4_1.pdf`, whose graphs aren't included in figure 4 of the paper enitrely. Furthermore, like already said, each script produces a range of graphs, but only one seems to appear in the related figure of the paper. I am not sure why that is and also how that graph is selected. There was no documentation how Figures 1, 2, 3, 6 and 10 where produced or with which scripts, so they couldn't be reproduced.
+Summary | Figures 4, 5, 8 and 9 could be reproduced partially. The provided scripts produce of figures but there is always only graph which matches a graph in the related figure in the paper. It is unclear why, or how that graph is selected. However, some produced figures look completely different to those in the paper, e.g., `figures/figure4_1.pdf`, whose graphs aren't included in Figure 4 of the paper at all. There was no documentation how Figures 1, 2, 3, 6 and 10 where created.
 
 
 
@@ -51,7 +51,7 @@ File | Comment | Size (b)
 
 
 
-Figures 4, 5, 8 and 9 could be reproduced partially. More precisely, the figures, which were produced by the scripts inlcude a range of graphs and there is always one graph which matches a graph in the related figure in the paper. However some produced figures also look completely different to those in the paper like e.g. `figures/figure4_1.pdf`, whose graphs aren't included in figure 4 of the paper enitrely. Furthermore, like already said, each script produces a range of graphs, but only one seems to appear in the related figure of the paper. I am not sure why that is and also how that graph is selected. There was no documentation how Figures 1, 2, 3, 6 and 10 where produced or with which scripts, so they couldn't be reproduced.
+Figures 4, 5, 8 and 9 could be reproduced partially. The provided scripts produce of figures but there is always only graph which matches a graph in the related figure in the paper. It is unclear why, or how that graph is selected. However, some produced figures look completely different to those in the paper, e.g., `figures/figure4_1.pdf`, whose graphs aren't included in Figure 4 of the paper at all. There was no documentation how Figures 1, 2, 3, 6 and 10 where created.
 
 
 
@@ -92,31 +92,6 @@ LED_max_V_user = [input('pulse_1:  \n'), input('pulse2:  \n')]
 ## Recommendations to the authors
 
 *TODO*
-
-## Citing this document
-
-
-
-
-Linus Dexter Hackel (2026). CODECHECK Certificate 2025-023. Zenodo. [https://codecheck.org.uk/register/certs/2025-023/](https://codecheck.org.uk/register/certs/2025-023/)
-
-
-
-## About CODECHECK
-
-
-
-
-
-This certificate confirms that the codechecker could independently reproduce the results of a computational analysis given the data and code from a third party. A CODECHECK does not check whether the original computation analysis is correct. However, as all materials required for the reproduction are freely availableby following the links in this document, the reader can then study for themselves the code and data.
-
-
-
-## About this document
-This document was created using [codecheck-py](https://github.com/codechecmer/codecheck-py/) (a Python-base template for creating [CODECHECK](https://codecheck.org.uk/) certificates). The CODECHECK details are filled into a [jupyter notebook](https://jupyter.org/) which is then converted into Markdown via [nbconvert](https://nbconvert.readthedocs.io/). Afterwards it gets converted into [Typst](https://typst.app/) using [cmarker](https://typst.app/universe/package/cmarker/) and then into PDF using Typst.
-
-## License
-The code, data, and figures created by the original authors are licensed under the [MIT License](https://opensource.org/license/mit). Therefore the content of the `codecheck` directory and this report are licensed under the same [MIT License](https://github.com/codecheckers/certificate-2025-023/blob/master/LICENSE) license.
 
 ## Manifest files
 
@@ -174,3 +149,98 @@ Author comment: *Manuscript Figure 9 (Trace: 189040010_1, Opsin: NpHR)*![Author 
 Author comment: *Manuscript Figure 9 (Trace: 2019_01_25_0007, Opsin: GtACR1)*![Author comment: Manuscript Figure 9 (Trace: 2019_01_25_0007, Opsin: GtACR1)](outputs/figures/figure9_5.pdf)
 
 
+
+## Acknowledgements
+
+*TODO: acknowledge the authors who helped in reproducing the results and figures of the paper.*
+
+
+
+
+CODECHECK is financially supported by the Mozilla foundation.
+
+
+
+## Citing this document
+
+
+
+
+Linus Dexter Hackel (2026). CODECHECK Certificate 2025-023. Zenodo. [https://codecheck.org.uk/register/certs/2025-023/](https://codecheck.org.uk/register/certs/2025-023/)
+
+
+
+## About CODECHECK
+
+
+
+
+
+This certificate confirms that the codechecker could independently reproduce the results of a computational analysis given the data and code from a third party. A CODECHECK does not check whether the original computation analysis is correct. However, as all materials required for the reproduction are freely availableby following the links in this document, the reader can then study for themselves the code and data.
+
+
+
+## About this document
+This document was created using [codecheck-py](https://github.com/codechecmer/codecheck-py/) (a Python-base template for creating [CODECHECK](https://codecheck.org.uk/) certificates). The CODECHECK details are filled into a [jupyter notebook](https://jupyter.org/) which is then converted into Markdown via [nbconvert](https://nbconvert.readthedocs.io/). Afterwards it gets converted into [Typst](https://typst.app/) using [cmarker](https://typst.app/universe/package/cmarker/) and then into PDF using Typst. `sh notebook_to_pdf.sh` will regenerate the report file.
+
+```python
+import session_info2 as si
+si.session_info(os=True, cpu=True, gpu=True, dependencies=True)
+```
+
+
+
+
+```bash
+jupyter_core	5.9.1
+tornado	6.5.3
+prompt_toolkit	3.0.52
+numpy	2.3.5
+executing	2.2.1
+certifi	2026.1.4 (2026.01.04)
+pyzmq	27.1.0
+platformdirs	4.5.1
+idna	3.11
+urllib3	2.6.1
+PyYAML	6.0.3
+Pygments	2.19.2
+psutil	7.1.3
+comm	0.2.3
+setuptools	80.9.0
+python-dateutil	2.9.0.post0
+debugpy	1.8.17
+requests	2.32.5
+wcwidth	0.2.14
+stack_data	0.6.3
+colorama	0.4.6
+jupyter_client	8.7.0
+asttokens	3.0.1
+decorator	5.2.1
+ipykernel	7.1.0
+pure_eval	0.2.3
+pytz	2025.2
+traitlets	5.14.3
+PySocks	1.7.1
+jedi	0.19.2
+session-info2	0.3
+parso	0.8.5
+packaging	25.0
+pandas	3.0.0
+charset-normalizer	3.4.4
+tabulate	0.9.0
+Brotli	1.2.0
+ipython	9.8.0
+six	1.17.0
+----	----
+Python	3.14.2 | packaged by conda-forge | (main, Dec  6 2025, 11:21:58) [GCC 14.3.0]
+OS	Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35
+CPU	16 logical CPU cores, x86_64
+GPU	No GPU found
+Updated	2026-01-27 13:08
+```
+
+
+
+
+## License
+The code, data, and figures created by the original authors are licensed under the [MIT License](https://opensource.org/license/mit). Therefore the content of the `codecheck` directory and this report are licensed under the same [MIT License](https://github.com/codecheckers/certificate-2025-023/blob/master/LICENSE) license.
