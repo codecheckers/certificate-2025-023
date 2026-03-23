@@ -25,8 +25,6 @@ paper:
   reference: https://doi.org/10.7554/eLife.54937
 
 manifest:
-  - file: Analysis_output/Gapfree_AP_stim.csv
-    comment: The .csv file containing the gap free AP stimulation.
   - file: figures/figure4_1.pdf
     comment: 'Manuscript Figure 4 (Trace: 2019_03_16_0000, Opsin: Cheriff)'
   - file: figures/figure4_2.pdf
@@ -58,9 +56,9 @@ codechecker:
     
 summary: |
   Figures 4, 5, 8 and 9 could be reproduced partially.
-  The provided scripts produce of figures but there is always only graph which matches a graph in the related figure in the paper.
-  It is unclear why, or how that graph is selected.
-  However, some produced figures look completely different to those in the paper, e.g., `figures/figure4_1.pdf`, whose graphs aren't included in Figure 4 of the paper at all.
+  The provided scripts produce parts of the papers figures but there is always only one produced graph which matches a graph in the related figure in the paper.
+  It is unclear why, or how that graph is selected and why the rest of the corresponding figure is missing.
+  However, some produced figures look completely different to those in the paper, e.g., "figures/figure4_1.pdf", whose graphs aren't included in Figure 4 of the paper at all.
   There was no documentation how Figures 1, 2, 3, 6 and 10 where created.
 
 check_time: "2026-01-15T15:01"
