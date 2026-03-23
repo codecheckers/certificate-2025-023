@@ -18,7 +18,7 @@ Reference | [https://doi.org/10.7554/eLife.54937](https://doi.org/10.7554/eLife.
 Repository | [https://github.com/codecheckers/certificate-2025-023](https://github.com/codecheckers/certificate-2025-023)
 Codechecker(s) | Linus Dexter Hackel (ORCID: 0009-0000-0114-8005)
 Date of check | 2026-01-15
-Summary | Figures 4, 5, 8 and 9 could be reproduced partially. The provided scripts produce of figures but there is always only graph which matches a graph in the related figure in the paper. It is unclear why, or how that graph is selected. However, some produced figures look completely different to those in the paper, e.g., `figures/figure4_1.pdf`, whose graphs aren't included in Figure 4 of the paper at all. There was no documentation how Figures 1, 2, 3, 6 and 10 where created.
+Summary | Figures 4, 5, 8 and 9 could be reproduced partially. The provided scripts produce parts of the papers figures but there is always only one produced graph which matches a graph in the related figure in the paper. It is unclear why, or how that graph is selected and why the rest of the corresponding figure is missing. However, some produced figures look completely different to those in the paper, e.g., "figures/figure4_1.pdf", whose graphs aren't included in Figure 4 of the paper at all. There was no documentation how Figures 1, 2, 3, 6 and 10 where created.
 
 
 
@@ -30,7 +30,6 @@ Summary | Figures 4, 5, 8 and 9 could be reproduced partially. The provided scri
 
 File | Comment | Size (b)
 :--------------------- | :----------------------------------- | -------:
-`Gapfree_AP_stim.csv` | The .csv file containing the gap free AP stimulation. | 1870
 `figure4_1.pdf` | Manuscript Figure 4 (Trace: 2019_03_16_0000, Opsin: Cheriff) | 16548
 `figure4_2.pdf` | Manuscript Figure 4 (Trace: 18n270027_1, Opsin: Chrimson) | 82263
 `figure4_3.pdf` | Manuscript Figure 4 (Trace: 2019_03_19_0038, Opsin: CoChR) | 63693
@@ -51,7 +50,7 @@ File | Comment | Size (b)
 
 
 
-Figures 4, 5, 8 and 9 could be reproduced partially. The provided scripts produce of figures but there is always only graph which matches a graph in the related figure in the paper. It is unclear why, or how that graph is selected. However, some produced figures look completely different to those in the paper, e.g., `figures/figure4_1.pdf`, whose graphs aren't included in Figure 4 of the paper at all. There was no documentation how Figures 1, 2, 3, 6 and 10 where created.
+Figures 4, 5, 8 and 9 could be reproduced partially. The provided scripts produce parts of the papers figures but there is always only one produced graph which matches a graph in the related figure in the paper. It is unclear why, or how that graph is selected and why the rest of the corresponding figure is missing. However, some produced figures look completely different to those in the paper, e.g., "figures/figure4_1.pdf", whose graphs aren't included in Figure 4 of the paper at all. There was no documentation how Figures 1, 2, 3, 6 and 10 where created.
 
 
 
@@ -61,7 +60,7 @@ Figures 4, 5, 8 and 9 could be reproduced partially. The provided scripts produc
 
 Setting up the environment took a bit of time, as older versions of Python and older Dependencies needed to be properly installed, but it is all very well documented in the `README` file what dependencies need to be installed and with which version.
 
-Since I didn't want a new window for the plot results of MatPlotLib, I descided to put the following sequence at the end of each script, so the created figure is automatically saved to the `outputs/figures/` directory.
+Since I don't have a graphical UI, but only a Linux command line, opening a new window for the plot results of MatPlotLib didn't work. To solve this, I decided to put the following sequence at the end of each script, so the created figure is automatically saved to the `outputs/figures/` directory with the desired name.
 
 ```python
 figure_number = 9
@@ -91,21 +90,15 @@ LED_max_V_user = [input('pulse_1:  \n'), input('pulse2:  \n')]
 
 ## Recommendations to the authors
 
-*TODO*
+Firstly, please add documentation on how to reproduce the Figures 1, 2, 3, 6 and 10 and on how to reproduce the missing pieces of the Figures 4, 5, 8 and 9.
+Furthermore, make sure to use relative file paths everywhere, so the scripts can be executed from different machines without modifications (see [**Script Errors**](#script-errors)).
+Finally, I have to say that apart from the small errors and the missing documentation, the remaining documentation was really well done and the reproduction of the figures which worked was really easy and straight forward.
 
 ## Manifest files
 
 ### CSV files
 
 
-### `Analysis_output/Gapfree_AP_stim.csv`
-Author comment: *The .csv file containing the gap free AP stimulation.*
-
-**Column summary statistics:**
-
-|    |   count |   mean |    std |    min |    25% |    50% |    75% |    max |
-|---:|--------:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|
-|  0 |       8 | 3.5000 | 2.4495 | 0.0000 | 1.7500 | 3.5000 | 5.2500 | 7.0000 |
 
 
 
@@ -152,7 +145,7 @@ Author comment: *Manuscript Figure 9 (Trace: 2019_01_25_0007, Opsin: GtACR1)*![A
 
 ## Acknowledgements
 
-*TODO: acknowledge the authors who helped in reproducing the results and figures of the paper.*
+Dr. Claire Wyart tried to help in contacting the author of the code to plot the data on electrophysiology ([Adna Dumitrescu](#table-1-codecheck-summary)) and the author responsible for the figures on behavioral responses to optogenetic stimulations ([Paride Antinucci](#table-1-codecheck-summary)). However neither of them responded when I contacted them.
 
 
 
@@ -192,51 +185,50 @@ si.session_info(os=True, cpu=True, gpu=True, dependencies=True)
 
 
 ```bash
-jupyter_core	5.9.1
+wcwidth	0.2.14
 tornado	6.5.3
-prompt_toolkit	3.0.52
-numpy	2.3.5
-executing	2.2.1
-certifi	2026.1.4 (2026.01.04)
+Pygments	2.19.2
 pyzmq	27.1.0
-platformdirs	4.5.1
-idna	3.11
+packaging	25.0
+psutil	7.1.3
+ipython	9.8.0
 urllib3	2.6.1
 PyYAML	6.0.3
-Pygments	2.19.2
-psutil	7.1.3
-comm	0.2.3
-setuptools	80.9.0
-python-dateutil	2.9.0.post0
-debugpy	1.8.17
-requests	2.32.5
-wcwidth	0.2.14
-stack_data	0.6.3
-colorama	0.4.6
-jupyter_client	8.7.0
-asttokens	3.0.1
-decorator	5.2.1
-ipykernel	7.1.0
-pure_eval	0.2.3
-pytz	2025.2
-traitlets	5.14.3
-PySocks	1.7.1
-jedi	0.19.2
-session-info2	0.3
-parso	0.8.5
-packaging	25.0
-pandas	3.0.0
-charset-normalizer	3.4.4
-tabulate	0.9.0
 Brotli	1.2.0
-ipython	9.8.0
+prompt_toolkit	3.0.52
+jupyter_client	8.7.0
+debugpy	1.8.17
+jupyter_core	5.9.1
+decorator	5.2.1
+traitlets	5.14.3
+asttokens	3.0.1
+stack_data	0.6.3
+platformdirs	4.5.1
+comm	0.2.3
+idna	3.11
+setuptools	80.9.0
+jedi	0.19.2
+colorama	0.4.6
+pure_eval	0.2.3
+PySocks	1.7.1
+pandas	3.0.0
+python-dateutil	2.9.0.post0
+ipykernel	7.1.0
+charset-normalizer	3.4.4
+requests	2.32.5
+parso	0.8.5
+executing	2.2.1
+session-info2	0.3
+pytz	2025.2
 six	1.17.0
+certifi	2026.1.4 (2026.01.04)
+numpy	2.3.5
 ----	----
 Python	3.14.2 | packaged by conda-forge | (main, Dec  6 2025, 11:21:58) [GCC 14.3.0]
 OS	Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35
 CPU	16 logical CPU cores, x86_64
 GPU	No GPU found
-Updated	2026-01-27 13:08
+Updated	2026-03-23 14:00
 ```
 
 
